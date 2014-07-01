@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">JitAndroidLib</string>
+    <string name="lib_cancel">取消</string>
+    <string name="lib_sureTitle">确定</string>
+    <string name="lib_cancelTitle">取消</string>
+    <string name="lib_noteTitle">提示</string>
+    <string name="lib_connectionErrorMsg1">网络错误，请确保您的连接可用，点击确定去设置网络。</string>
+    
+    <string name="retry_after_conneted">请连接网络后重试</string>
+    <string name="loading">正在为您努力加载...</string>
+
+    <!-- xlistview -->
+    <string name="xlistview_header_hint_loading">努力加载中。。。</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">释放刷新</string>
+    <string name="xlistview_footer_hint_ready">释放加载更多</string>
+    <string name="xlistview_footer_hint_no_more">已经是最后一页了</string>
+    <string name="xlistview_footer_hint_normal">上拉加载更多</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    
+    <!-- pulltorefresh -->
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_release_label">释放刷新</string>
+    <string name="pull_to_refresh_release_label_no_more">已经是最后一页</string>
+    <string name="pull_to_refresh_refreshing_label">正在加载...</string>
+    <!-- Just use standard Pull Down String when pulling up. These can be set for languages which require it -->
+    <string name="pull_to_refresh_from_bottom_pull_label">@string/pull_to_refresh_pull_label</string>
+    <string name="pull_to_refresh_from_bottom_release_label">@string/pull_to_refresh_release_label</string>
+    <string name="pull_to_refresh_from_bottom_refreshing_label">@string/pull_to_refresh_refreshing_label</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加载更多</string>
+
+</resources>
