@@ -6,15 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-/**
- * 
- * 
- * FileName: ShellUtils.java
- * Description：android shell命令类
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class ShellUtils {
 
     public static final String COMMAND_SU       = "su";

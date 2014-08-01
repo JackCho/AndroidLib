@@ -18,15 +18,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 
-/**
- * 
- * 
- * FileName: FileUtils.java
- * Description：文件助手
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class FileUtils {
 
     public final static String FILE_EXTENSION_SEPARATOR = ".";

@@ -8,9 +8,6 @@ package com.jit.lib.util;
  * Description：数据转换，String-->int
  * 						String --> double
  * 						String --> long
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
  */
 public class String2Number {
 

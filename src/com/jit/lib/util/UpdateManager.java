@@ -31,15 +31,6 @@ import android.widget.Toast;
 
 import com.jit.lib.R;
 
-/**
- * 
- * 
- * FileName: UpdateManager.java
- * Description：更新APP的助手类
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class UpdateManager {
 
 	private static final int DOWN_NOSDCARD = 0;

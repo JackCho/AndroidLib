@@ -3,15 +3,6 @@ package com.jit.lib.util;
 import android.content.Context;
 import android.view.View;
 
-/**
- * 
- * 
- * FileName: DensityUtil.java
- * Description：手机分辨率工具类，获取手机宽高以及单位之间的转换
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class DensityUtil {
 
 	public static final float getDensity(Context context) {

@@ -4,15 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-/**
- * 要在Application中初始化
- * 
- * FileName: PreferenceUtil.java
- * Description：SharedPreferences的管理类
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class PreferenceUtil {
 
     private static SharedPreferences mSharedPreferences = null;

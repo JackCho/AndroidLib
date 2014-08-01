@@ -8,15 +8,6 @@ import android.net.Uri;
 import com.jit.lib.service.IPhoto;
 import com.jit.lib.util.PhotoUtil;
 
-/**
- * 
- * 
- * FileName: PhotoActivity.java
- * Description：拍照Activity的Demo
- * Created by 曹玉斌 on 2014-5-8
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class PhotoActivityDemo extends Activity implements IPhoto{
 
 	@Override

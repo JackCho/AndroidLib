@@ -8,15 +8,6 @@ import com.baidu.frontia.api.FrontiaAuthorization.MediaType;
 import com.baidu.frontia.api.FrontiaAuthorizationListener.AuthorizationListener;
 import com.baidu.frontia.api.FrontiaAuthorizationListener.UserInfoListener;
 
-/**
- * 
- * 
- * FileName: LoginHelper.java
- * Description：第三方登录
- * Created by 曹玉斌 on 2014-5-8
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class LoginHelper {
 
 	private static FrontiaAuthorization mAuthorization;

@@ -5,15 +5,6 @@ import android.content.Context;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 
-/**
- * 
- * 
- * FileName: PhoneInfo.java
- * Description：获取手机设备信息以及运营商信息
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class PhoneInfo {
 
 	private static  TelephonyManager telephonyManager;

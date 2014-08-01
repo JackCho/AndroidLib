@@ -11,15 +11,6 @@ import org.json.JSONException;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-/**
- * 
- * 
- * FileName: Json2Bean.java
- * Description：使用Gson相互转化json与bean
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class Json2Bean {
 
 	/**

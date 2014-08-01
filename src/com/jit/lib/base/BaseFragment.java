@@ -1,12 +1,5 @@
 package com.jit.lib.base;
 
-import com.jit.lib.service.INet;
-import com.jit.lib.util.HttpUtil;
-import com.jit.lib.util.StringUtils;
-import com.jit.lib.util.UIHelper;
-import com.lidroid.xutils.ViewUtils;
-
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -15,7 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-@SuppressLint("HandlerLeak")
+import com.jit.lib.service.INet;
+import com.jit.lib.util.HttpUtil;
+import com.jit.lib.util.StringUtils;
+import com.jit.lib.util.ThreadPool;
+import com.jit.lib.util.UIHelper;
+import com.lidroid.xutils.ViewUtils;
+
 public abstract class BaseFragment extends Fragment{
 	/**
 	 * 为子类提供(Activity的)上下文
@@ -42,13 +41,18 @@ public abstract class BaseFragment extends Fragment{
 		//为XUtils初始化(必须在布局加载之后)
 		ViewUtils.inject(this,root);
 		initData();
-		initTitle(root);
 		initView(root);
 		afterViewInit();
 		if (!HttpUtil.isNetworkAvailable(mActivity)) {
 			UIHelper.showNetConnectFailureDialog(mActivity);
 		}
 		return root;
+	}
+	
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		mHandler.removeCallbacksAndMessages(null);
 	}
 	
 	/**
@@ -62,9 +66,6 @@ public abstract class BaseFragment extends Fragment{
 	 * 初始化数据，包括从bundle中获取数据保存到当前activity中
 	 */
 	protected abstract void initData();
-	
-	
-	protected abstract void initTitle(View root);	
 	
 	/**
 	 * 初始化界面，如获取界面中View的名称并保存，定义Title的文字，以及定义各个控件的处理事件
@@ -108,22 +109,22 @@ public abstract class BaseFragment extends Fragment{
 			UIHelper.showProgressDialog(mActivity, "", "正在为您努力加载...");
 		}
 		
-		new Thread(){
+		ThreadPool.getInstance().execute(new Runnable() {
+			
+			@Override
 			public void run() {
 				String result = iNet.run(what);
 				Message msg = mHandler.obtainMessage();
 				msg.what = what;
 				msg.obj = result;
-				
 				if (isShowPb) {
 					msg.arg1 = SHOW_PB;
 				} else {
 					msg.arg1 = NOT_SHOW_PB;
 				}
-				
 				mHandler.sendMessage(msg);
-			};
-		}.start();
+			}
+		});
 	}
 	
 	protected Handler mHandler = new Handler(){

@@ -5,14 +5,6 @@ import java.security.NoSuchAlgorithmException;
 
 import android.annotation.SuppressLint;
 
-/**
- * 
- * 
- * FileName: StringUtils.java Description：字符串工具类 Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- * 
- */
-
 @SuppressLint("DefaultLocale")
 public class StringUtils {
 

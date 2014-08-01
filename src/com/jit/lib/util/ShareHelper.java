@@ -9,15 +9,6 @@ import com.baidu.frontia.api.FrontiaSocialShare;
 import com.baidu.frontia.api.FrontiaSocialShareContent;
 import com.baidu.frontia.api.FrontiaSocialShareListener;
 
-/**
- * 
- * 
- * FileName: ShareHelper.java
- * Description：使用百度社会化分享分享到不同的平台
- * Created by 曹玉斌 on 2014-5-7
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class ShareHelper {
 	
 	/**

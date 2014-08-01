@@ -1,21 +1,12 @@
 package com.jit.lib.util;
 
-import java.util.Stack;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import android.app.Activity;
 import android.content.Context;
 
-/**
- * 
- * 
- * FileName: AppManager.java
- * Description： 应用程序Activity管理类
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class AppManager {
-	private static Stack<Activity> activityStack;
+	private static CopyOnWriteArrayList<Activity> activityStack;
 	private static AppManager instance;
 
 	private AppManager() {
@@ -36,7 +27,7 @@ public class AppManager {
 	 */
 	public void addActivity(Activity activity) {
 		if (activityStack == null) {
-			activityStack = new Stack<Activity>();
+			activityStack = new CopyOnWriteArrayList<Activity>();
 		}
 		activityStack.add(activity);
 	}
@@ -45,7 +36,7 @@ public class AppManager {
 	 * 获取当前Activity（堆栈中最后一个压入的）
 	 */
 	public Activity currentActivity() {
-		Activity activity = activityStack.lastElement();
+		Activity activity = activityStack.get(activityStack.size() - 1);
 		return activity;
 	}
 
@@ -53,7 +44,7 @@ public class AppManager {
 	 * 结束当前Activity（堆栈中最后一个压入的）
 	 */
 	public void finishActivity() {
-		Activity activity = activityStack.lastElement();
+		Activity activity = activityStack.get(activityStack.size() - 1);
 		if (activity != null) {
 			activity.finish();
 			activity = null;
@@ -117,8 +108,6 @@ public class AppManager {
 	public void AppExit(Context context) {
 		try {
 			finishAllActivity();
-//			ActivityManager activityMgr = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-//			activityMgr.restartPackage(context.getPackageName());
 			System.exit(0);
 		} catch (Exception e) {
 			e.printStackTrace();

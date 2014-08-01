@@ -6,17 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
 
-/**
- * 
- * 
- * FileName: DateUtil.java Description：时间日期相关的格式转换及获取友好时间间隔 Created by 曹玉斌 on
- * 2014-5-6 Copyright (c) 2014年 JIT. All rights reserved.
- * 
- */
-@SuppressLint("SimpleDateFormat")
 public class DateUtil {
 
 	private static final String DEFAULT_FORMAT = "yyyy-MM-dd HH:mm:ss";

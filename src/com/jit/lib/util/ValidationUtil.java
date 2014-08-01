@@ -5,15 +5,6 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * 
- * 
- * FileName: ValidationUtil.java
- * Description：正则验证工具类，包括邮箱、手机、网址、数字
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class ValidationUtil {
 
 	public static boolean isEmailValid(String email) {

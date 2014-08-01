@@ -15,15 +15,6 @@ import com.tencent.mm.sdk.openapi.WXMediaMessage;
 import com.tencent.mm.sdk.openapi.WXMediaMessage.IMediaObject;
 import com.tencent.mm.sdk.openapi.WXTextObject;
 
-/**
- * 
- * 
- * FileName: WeixinShareHelper.java
- * Description：微信分享工具类
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class WeixinShareHelper {
 
 	public static String WX_APPID = "wx786a82e1935cb359";

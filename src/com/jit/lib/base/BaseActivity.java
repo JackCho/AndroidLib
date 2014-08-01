@@ -1,36 +1,22 @@
 package com.jit.lib.base;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
 
 import com.jit.lib.R;
 import com.jit.lib.service.INet;
 import com.jit.lib.util.AppManager;
 import com.jit.lib.util.HttpUtil;
 import com.jit.lib.util.StringUtils;
+import com.jit.lib.util.ThreadPool;
 import com.jit.lib.util.UIHelper;
 import com.lidroid.xutils.ViewUtils;
-/**
- * 
- * 
- * FileName: BaseActivity.java
- * Description：所有Activity的基类
- * Created by 曹玉斌 on 2014-5-7
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
-@SuppressLint("HandlerLeak")
+
 public abstract class BaseActivity extends FragmentActivity {
-	
-	public static final int TITLE_TYPE_NO_TITLE = 0;
-	public static final int TITLE_TYPE_NORMAL = 1;
-	public static final int TITLE_TYPE_CUSTOM = 2;
 	
 	private INet iNet;
 	
@@ -46,12 +32,10 @@ public abstract class BaseActivity extends FragmentActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		initStyle();
 		super.onCreate(savedInstanceState);
 		mActivity = this;
 		initTitleTypeAndLayout();
 		initData();
-		initTitle();
 		initView();
 		afterViewInit();
 		if (!HttpUtil.isNetworkAvailable(this)) {
@@ -63,6 +47,7 @@ public abstract class BaseActivity extends FragmentActivity {
 	@Override
 	protected void onDestroy() {
 		AppManager.getAppManager().finishActivity(this);
+		mHandler.removeCallbacksAndMessages(null);
 		super.onDestroy();
 	}
 
@@ -81,35 +66,13 @@ public abstract class BaseActivity extends FragmentActivity {
 		overridePendingTransition(0, R.anim.out_from_right);
 	}
 	
-	
 	/**
-	 * 初始化Title并加载布局
+	 * 加载布局
 	 */
 	private void initTitleTypeAndLayout() {
-		int titleType = getTitleType();
-		if (titleType == TITLE_TYPE_CUSTOM && this.getTitleLayout() > 0) {
-			requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-			setContentView(getLayoutId());
-			getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
-					getTitleLayout());
-		} else if (titleType == TITLE_TYPE_NO_TITLE) {
-			requestWindowFeature(Window.FEATURE_NO_TITLE);
-			setContentView(getLayoutId());
-		} else {
-			setContentView(getLayoutId());
-		}
+		setContentView(getLayoutId());
 		//为XUtils初始化(必须在布局加载之后)
 		ViewUtils.inject(this);
-		
-	}
-
-	
-
-	/**
-	 * 代码执行于super.onCreate(savedInstanceState);之前， 主要用于初始化theme等
-	 */
-	protected void initStyle() {
-
 	}
 	
 	/**
@@ -134,16 +97,13 @@ public abstract class BaseActivity extends FragmentActivity {
 	protected void startThread(final INet iNet, final int what, final boolean isShowPb) {
 		this.iNet =  iNet;
 		
-//		if (!HttpUtil.isNetworkAvailable(this)) {
-//			UIHelper.showToastShort(BaseActivity.this, R.string.retry_after_conneted);
-//			return;
-//		}
-		
 		if (isShowPb) {
 			UIHelper.showProgressDialog(this, "", getString(R.string.loading));
 		}
 		
-		new Thread(){
+		ThreadPool.getInstance().execute(new Runnable() {
+			
+			@Override
 			public void run() {
 				String result = iNet.run(what);
 				Message msg = mHandler.obtainMessage();
@@ -155,8 +115,8 @@ public abstract class BaseActivity extends FragmentActivity {
 					msg.arg1 = NOT_SHOW_PB;
 				}
 				mHandler.sendMessage(msg);
-			};
-		}.start();
+			}
+		});
 	}
 	
 	private Handler mHandler = new Handler(){
@@ -186,12 +146,6 @@ public abstract class BaseActivity extends FragmentActivity {
 	protected abstract int getLayoutId();
 	
 	/**
-	 * 初始化title(设置监听,加载标题文字等)
-	 * 
-	 */
-	protected abstract void initTitle();
-
-	/**
 	 * 初始化数据，包括从bundle中获取数据保存到当前activity中
 	 */
 	protected abstract void initData();
@@ -207,21 +161,5 @@ public abstract class BaseActivity extends FragmentActivity {
 	 */
 	protected abstract void afterViewInit();
 	
-	
-	/**
-	 * 指定当前Activity的Title显示类别，值应为：TITLE_TYPE_NO_TITLE、TITLE_TYPE_NORMAL、
-	 * TITLE_TYPE_CUSTOM, 如果值为TITLE_TYPE_CUSTOM，需要重写getTitleLayout中返回TitleLayout
-	 * id
-	 * 
-	 * @return
-	 */
-	protected abstract int getTitleType();
-	
-	/**
-	 * 对于需要带Title行的Activity，重写此方法，返回title的layout xml id
-	 * 
-	 * @return
-	 */
-	protected abstract int getTitleLayout();
 	
 }

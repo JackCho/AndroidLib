@@ -5,15 +5,6 @@ import java.io.File;
 import android.os.Environment;
 import android.os.StatFs;
 
-/**
- * 
- * 
- * FileName: CommonUtil.java
- * Description：
- * Created by 曹玉斌 on 2014-5-7
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class CommonUtil {
 
 	public static boolean checkSDCardExist() {

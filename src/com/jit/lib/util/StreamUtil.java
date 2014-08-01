@@ -5,7 +5,6 @@ import java.io.InputStream;
 
 /**
  *  数据流转换工具类
- * @author Rocky
  *
  */
 public class StreamUtil {

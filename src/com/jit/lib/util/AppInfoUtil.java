@@ -7,11 +7,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.graphics.drawable.Drawable;
 
-/**
- * AppInfo工具类
- * @author Rocky
- *
- */
 public class AppInfoUtil {
 	
 	/**

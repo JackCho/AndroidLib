@@ -2,15 +2,6 @@ package com.jit.lib.util;
 
 import android.util.Log;
 
-/**
- * 
- * 
- * FileName: Logger.java
- * Description：打印日志管理类(DEBUG_STATE开发环境为true,正式环境为false)
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class Logger {
 	private static final String COMMON_TAG = "qixin";
 	

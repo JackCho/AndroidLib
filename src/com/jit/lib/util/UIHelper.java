@@ -17,15 +17,6 @@ import android.widget.Toast;
 
 import com.jit.lib.R;
 
-/**
- * 
- * 
- * FileName: UIHelper.java
- * Description：UI相关的工具类，包括展示ProgressDialog,Toast,startActivity等操作
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class UIHelper {
 
 	private static ProgressDialog mDialog;

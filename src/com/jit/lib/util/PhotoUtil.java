@@ -9,15 +9,6 @@ import android.provider.MediaStore;
 import com.jit.lib.global.Constants;
 import com.jit.lib.service.IPhoto;
 
-/**
- * 
- * 
- * FileName: PhotoUtil.java
- * Description：拍照或选择图片的工具类
- * Created by 曹玉斌 on 2014-5-8
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class PhotoUtil {
 
 	public static void startCamera4Photo(Activity activity) {

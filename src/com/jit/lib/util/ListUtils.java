@@ -3,15 +3,6 @@ package com.jit.lib.util;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- * 
- * FileName: ListUtils.java
- * Description：List助手
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class ListUtils {
 
     /** default join separator **/

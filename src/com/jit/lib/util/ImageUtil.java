@@ -11,15 +11,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 
-/**
- * 
- * 
- * FileName: ImageUtil.java
- * Description：图片操作助手类
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class ImageUtil {
 
     /**

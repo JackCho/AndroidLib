@@ -1,14 +1,5 @@
 package com.jit.lib.util;
 
-/**
- * 
- * 
- * FileName: ArrayUtils.java
- * Description：Array助手
- * Created by 曹玉斌 on 2014-5-6
- * Copyright (c) 2014年 JIT. All rights reserved.
- *
- */
 public class ArrayUtils {
 
     /**
